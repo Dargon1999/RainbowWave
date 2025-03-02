@@ -1,0 +1,355 @@
+/* Общие стили для body */
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    transition: background-position 0.5s ease;
+}
+
+/* Переменные для цветов и теней */
+:root {
+    --shadow-light: 0 0 15px rgba(0, 0, 0, 0.2);
+    --shadow-dark: 0 0 15px rgba(0, 0, 0, 0.5);
+    --focus-shadow: 0 0 5px #5865f2;
+    --primary-color: #5865f2;
+    --hover-color: #4752c4;
+}
+
+/* Общие стили для тем */
+body {
+    background-attachment: fixed;
+    background-size: 200% 200%;
+    background-position: center;
+}
+
+/* Тёмная тема */
+body.dark-theme {
+    background-color: #2f3136;
+    color: #ffffff;
+    background-image: linear-gradient(45deg, #2f3136, #36393f);
+}
+
+body.dark-theme .container {
+    background-color: #36393f;
+    box-shadow: var(--shadow-dark);
+}
+
+body.dark-theme .text-editor {
+    background-color: #40444b;
+    color: #ffffff;
+}
+
+body.dark-theme .text-editor:empty:before {
+    color: #72767d;
+}
+
+body.dark-theme input[type="text"],
+body.dark-theme #discordCode {
+    background-color: #40444b;
+    color: #ffffff;
+}
+
+body.dark-theme input[type="text"]::placeholder {
+    color: #72767d;
+}
+
+body.dark-theme h1,
+body.dark-theme h2 {
+    color: var(--primary-color);
+}
+
+body.dark-theme p,
+body.dark-theme h3,
+body.dark-theme span,
+body.dark-theme .hotkey-section label {
+    color: #b9bbbe;
+}
+
+/* Светлая тема */
+body.light-theme {
+    background-color: #ffffff;
+    color: #000000;
+    background-image: linear-gradient(45deg, #ffffff, #f0f0f0);
+}
+
+body.light-theme .container {
+    background-color: #f0f0f0;
+    box-shadow: var(--shadow-light);
+}
+
+body.light-theme .text-editor {
+    background-color: #e0e0e0;
+    color: #000000;
+}
+
+body.light-theme .text-editor:empty:before {
+    color: #555555;
+}
+
+body.light-theme .text-editor:focus {
+    box-shadow: var(--focus-shadow);
+}
+
+body.light-theme input[type="text"],
+body.light-theme #discordCode {
+    background-color: #d0d0d0;
+    color: #000000;
+}
+
+body.light-theme input[type="text"]::placeholder {
+    color: #555555;
+}
+
+body.light-theme h1,
+body.light-theme h2 {
+    color: var(--primary-color);
+}
+
+body.light-theme p,
+body.light-theme h3,
+body.light-theme span,
+body.light-theme .hotkey-section label {
+    color: #333333;
+}
+
+/* Стили для переключателя тем - фиксированная позиция */
+.theme-toggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+}
+
+#themeToggleBtn {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #b9bbbe;
+    padding: 5px;
+    transition: transform 0.3s;
+}
+
+#themeToggleBtn:hover {
+    transform: scale(1.2);
+}
+
+/* Стили для контейнера */
+.container {
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+}
+
+/* Заголовки и параграфы */
+h1, h2 {
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+p {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* Текстовый редактор */
+.editor-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.text-editor {
+    width: 100%;
+    min-height: 120px;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 16px;
+    outline: none;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.text-editor:focus {
+    box-shadow: var(--focus-shadow);
+}
+
+.text-editor:empty:before {
+    content: attr(placeholder);
+}
+
+/* Горячие клавиши */
+.hotkeys {
+    margin-bottom: 20px;
+}
+
+.hotkey-section {
+    margin-bottom: 10px;
+}
+
+.hotkey-section label {
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+/* Кнопки выбора цвета */
+.color-buttons {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.color-buttons button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.color-buttons button:hover {
+    transform: scale(1.1);
+}
+
+/* Элементы управления */
+.controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--hover-color);
+}
+
+input[type="color"] {
+    width: 50px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="text"] {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    box-shadow: var(--focus-shadow);
+}
+
+span {
+    font-size: 16px;
+}
+
+/* Секция предпросмотра */
+.preview-section {
+    margin-top: 20px;
+    text-align: left;
+}
+
+h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+#discordCode {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    resize: none;
+    border: none;
+    outline: none;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* Стили для поля HEX ввода */
+.hex-input {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.hex-help {
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    color: #b9bbbe;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 3px;
+    transition: color 0.3s;
+}
+
+.hex-help:hover {
+    color: #ffffff;
+}
+
+body.light-theme .hex-help {
+    color: #333333;
+}
+
+body.light-theme .hex-help:hover {
+    color: #000000;
+}
+
+/* Стили для кнопки сброса */
+#resetBtn {
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#resetBtn:hover {
+    background-color: #c0392b;
+}
+
+/* Стили для кнопок форматирования текста */
+#boldBtn, #underlineBtn {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+
+#boldBtn:hover, #underlineBtn:hover {
+    transform: scale(1.1);
+}
